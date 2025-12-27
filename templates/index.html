@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% block title %}JB Batteries - Premium Power Solutions{% endblock %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<!-- ASYMMETRIC HERO WITH FLOATING ELEMENTS -->
+<section class="hero-modern">
+    <div class="hero-floating-elements">
+        <div class="float-circle cyan-glow"></div>
+        <div class="float-circle green-glow delay-1"></div>
+        <div class="float-battery"></div>
+    </div>
+    
+    <div class="hero-content-modern">
+        <div class="hero-badge-modern">⚡ EST. 2025 • ROHa, MAHARASHTRA</div>
+        <div class="hero-main">
+            <h1 class="hero-title">
+                <span class="title-line">Next-Gen</span>
+                <span class="title-line gradient-text-3d">Battery Power</span>
+            </h1>
+            <p class="hero-desc">Engineered for India's toughest conditions. VRLA Technology • Zero Maintenance • 99.9% Reliability</p>
+        </div>
+        
+        <div class="hero-cta-group">
+            <a href="#products" class="cta-primary neon-glow">
+                <span>🚀 Discover Range</span>
+                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </a>
+            <a href="tel:+919876543210" class="cta-secondary">📞 Instant Quote</a>
+        </div>
+        
+        <div class="hero-metrics">
+            <div class="metric-item">
+                <div class="metric-number">+10K</div>
+                <span>Batteries Sold</span>
+            </div>
+            <div class="metric-item">
+                <div class="metric-number">36<span>mo</span></div>
+                <span>Max Warranty</span>
+            </div>
+            <div class="metric-item">
+                <div class="metric-number">24h</div>
+                <span>Delivery</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STAGGERED PRODUCT SHOWCASE -->
+<section class="products-modern">
+    <div class="container">
+        <div class="section-header-modern">
+            <div class="header-badge">OUR PRODUCT LINEUP</div>
+            <h2>Power Solutions <span class="gradient-text">Engineered</span> for You</h2>
+            <p>From daily commuters to industrial backup, we have the perfect battery for every application</p>
+        </div>
+        
+        <div class="products-stagger">
+            <!-- BIKE -->
+            <div class="product-modern featured-bike">
+                <div class="product-media">
+                    <img src="{% static 'images/bike-battery.jpg' %}" alt="Bike Battery" loading="lazy">
+                    <div class="product-overlay">
+                        <div class="overlay-content">
+                            <h4>Bike Power Pro</h4>
+                            <div class="specs-quick">
+                                <span>12V • 4-9Ah</span>
+                                <span>200+ CCA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-header">
+                        <div class="category-badge bike-badge">🏍️ TWO-WHEELERS</div>
+                        <a href="{% url 'bike' %}" class="view-details">View Specs →</a>
+                    </div>
+                    <h3>Unmatched Startup Power</h3>
+                    <p>Perfect for Honda, Bajaj, Hero, TVS. Zero maintenance with 18-month warranty.</p>
+                    <div class="product-features">
+                        <span class="feature-dot cyan">VRLA Tech</span>
+                        <span class="feature-dot green">Maintenance Free</span>
+                        <span class="feature-dot orange">₹1,499+</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCOOTER + INVERTER ASYMMETRIC -->
+            <div class="products-grid-modern">
+                <div class="product-modern compact">
+                    <div class="product-media compact-media">
+                        <img src="{% static 'images/scooter-battery.jpg' %}" alt="Scooter Battery" loading="lazy">
+                        <div class="compact-badge">🛵 SCOOTER</div>
+                    </div>
+                    <div class="product-info compact">
+                        <h4>ScootPro Series</h4>
+                        <p>Ultra-light 12V 5Ah for electric scooters</p>
+                        <a href="{% url 'scooter' %}" class="compact-link">Details</a>
+                    </div>
+                </div>
+
+                <div class="product-modern compact inverter-card">
+                    <div class="product-media compact-media">
+                        <img src="{% static 'images/inverter-battery.jpg' %}" alt="Inverter Battery" loading="lazy">
+                        <div class="compact-badge industrial">🏠 INVERTER</div>
+                    </div>
+                    <div class="product-info compact">
+                        <h4>HomeGuard 150Ah</h4>
+                        <p>Tubular plates • 36 months warranty</p>
+                        <a href="{% url 'inverter' %}" class="compact-link">Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- NEUMORPHIC FEATURES SECTION -->
+<section class="features-modern">
+    <div class="container">
+        <div class="features-header">
+            <h2>Why <span class="gradient-text">JB Batteries</span> Stands Out</h2>
+            <p>Precision engineering meets Indian reliability</p>
+        </div>
+        
+        <div class="features-grid-modern">
+            <div class="feature-modern tech">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon">🔋</div>
+                </div>
+                <h4>German VRLA Technology</h4>
+                <p>Imported calcium plates ensure zero maintenance and 3x longer life cycles</p>
+            </div>
+            
+            <div class="feature-modern speed">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon">⚡</div>
+                </div>
+                <h4>Lightning Delivery</h4>
+                <p>Roha to Mumbai in 24 hours. Same-day dispatch for Raigad district</p>
+            </div>
+            
+            <div class="feature-modern service">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon">🛠️</div>
+                </div>
+                <h4>Expert Installation</h4>
+                <p>Certified technicians visit your location. 100% satisfaction guaranteed</p>
+            </div>
+            
+            <div class="feature-modern support">
+                <div class="feature-icon-wrapper">
+                    <div class="feature-icon">📞</div>
+                </div>
+                <h4>24/7 Live Support</h4>
+                <p>WhatsApp, call, or email. Response guaranteed within 30 minutes</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA + CONTACT -->
+<section class="cta-final">
+    <div class="container">
+        <div class="cta-content">
+            <div class="cta-text">
+                <h2>Ready to Power Up?</h2>
+                <p>Get your quote in 60 seconds</p>
+            </div>
+            <div class="cta-actions">
+                <a href="https://wa.me/919876543210?text=Hi%20JB%20Batteries%2C%20need%20quote%20for" class="whatsapp-xl" target="_blank">
+                    💬 WhatsApp Quote
+                </a>
+                <a href="tel:+919876543210" class="call-btn">📞 Call Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

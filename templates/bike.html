@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="product-detail">
+    <div class="container">
+        <h1>Bike Batteries</h1>
+        <div class="product-hero">
+            <img src="{% static 'images/bike-main.jpg' %}" alt="Bike Battery">
+            <div class="product-info">
+                <h2>JB Bike Power Series</h2>
+                <ul class="features">
+                    <li>🛵 12V, 4-9Ah Capacity</li>
+                    <li>⚡ 200+ CCA (Cold Cranking Amps)</li>
+                    <li>🔋 Maintenance Free VRLA Technology</li>
+                    <li>✅ 18 Months Warranty</li>
+                    <li>💰 Starting ₹1,499</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="specs-grid">
+            <div class="spec-card">
+                <h3>Key Specifications</h3>
+                <p><strong>Dimensions:</strong> 150x65x95 mm</p>
+                <p><strong>Weight:</strong> 2.8 kg</p>
+                <p><strong>Life Cycle:</strong> 300+ cycles</p>
+                <p><strong>Compatible:</strong> All 100-200cc bikes</p>
+            </div>
+            <div class="spec-card">
+                <h3>Perfect For</h3>
+                <ul>
+                    <li>Honda Activa, Shine</li>
+                    <li>Bajaj Pulsar, Platina</li>
+                    <li>Hero Splendor, Glamour</li>
+                    <li>TVS Apache, Radeon</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

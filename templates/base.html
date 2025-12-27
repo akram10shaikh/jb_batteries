@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}JB Batteries{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    {% block extra_css %}{% endblock %}
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{% url 'index' %}">JB Batteries</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="{% url 'index' %}#home">Home</a></li>
+                {% comment %} <li><a href="{% url 'bike' %}">Bike</a></li>
+                <li><a href="{% url 'car' %}">Car</a></li>
+                <li><a href="{% url 'scooter' %}">Scooter</a></li>
+                <li><a href="{% url 'inverter' %}">Inverter</a></li>
+                <li><a href="{% url 'index' %}#contact">Contact</a></li> {% endcomment %}
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" class="whatsapp-btn" id="whatsapp-btn" target="_blank">
+        <img src="{% static 'images/whatsapp.png' %}" alt="WhatsApp">
+        <span>Inquire Now</span>
+    </a>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

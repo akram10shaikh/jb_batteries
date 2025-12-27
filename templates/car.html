@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="product-detail">
+    <div class="container">
+        <h1>Car Batteries</h1>
+        <div class="product-hero">
+            <img src="{% static 'images/car-main.jpg' %}" alt="Car Battery">
+            <div class="product-info">
+                <h2>JB AutoMax Series</h2>
+                <ul class="features">
+                    <li>🚗 12V, 35-100Ah Capacity</li>
+                    <li>⚡ 400-700 CCA</li>
+                    <li>🔋 Calcium Technology</li>
+                    <li>✅ 24 Months Warranty</li>
+                    <li>💰 Starting ₹4,999</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="specs-grid">
+            <div class="spec-card">
+                <h3>Available Models</h3>
+                <p>JB-35B19L (35Ah) - Hatchbacks</p>
+                <p>JB-45B24R (45Ah) - Sedans</p>
+                <p>JB-60B24L (60Ah) - SUVs</p>
+            </div>
+            <div class="spec-card">
+                <h3>Vehicle Compatibility</h3>
+                <ul>
+                    <li>Maruti Swift, Dzire</li>
+                    <li>Hyundai i20, Creta</li>
+                    <li>Tata Nexon, Altroz</li>
+                    <li>Mahindra XUV300</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
