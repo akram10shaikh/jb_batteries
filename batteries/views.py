@@ -16,3 +16,9 @@ def scooter_batteries(request):
 
 def inverter_batteries(request):
     return render(request, 'inverter.html')
+
+def product_page(request):
+    return render(request,'product.html')
+
+def contact(request):
+    return render(request,'contact.html')
