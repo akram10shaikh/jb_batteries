@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeGuard Inverter Batteries - JB Batteries | 150Ah Tubular</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* 2025 ULTRA-MODERN JB INVERTER BATTERY DETAIL PAGE */
+    :root {
+        --bg-primary: #0a0e1a;
+        --bg-secondary: #111727;
+        --surface: #1e293b;
+        --glass: rgba(30, 41, 59, 0.6);
+        --cyan-primary: #0ea5e9;
+        --cyan-glow: #22d3ee;
+        --green-neon: #10b981;
+        --gradient-main: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #10b981 100%);
+        --gradient-glow: radial-gradient(circle, rgba(14,165,233,0.3), transparent 70%);
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --orange-glow: #f59e0b;
+    }
+
+    /* RESET + BASE */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        font-family: 'Inter', sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    /* CONTAINER */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* NAVBAR */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 5%;
+        background: rgba(5, 8, 22, 0.95);
+        backdrop-filter: blur(25px);
+        border-bottom: 1px solid rgba(148,163,184,0.15);
+        z-index: 1000;
+    }
+    .logo { font-size: 1.8rem; font-weight: 800; }
+    .logo a { color: #f8fafc; text-decoration: none; }
+    .nav-menu { display: flex; list-style: none; gap: 2.5rem; }
+    .nav-menu a { color: #94a3b8; text-decoration: none; font-weight: 500; }
+    .nav-menu a:hover, .nav-menu a.active { color: #f8fafc; }
+    .hamburger { display: none; flex-direction: column; gap: 4px; cursor: pointer; }
+    .hamburger span { width: 28px; height: 3px; background: var(--cyan-primary); border-radius: 2px; }
+
+    /* PAGE HERO */
+    .page-hero {
+        background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        padding: 8rem 0 4rem;
+    }
+    .breadcrumb {
+        display: flex; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);
+    }
+    .breadcrumb a { color: var(--cyan-primary); text-decoration: none; }
+    .page-title-main {
+        font-size: clamp(3rem, 6vw, 5rem); font-weight: 800; margin-top: 1rem;
+        background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+
+    /* PRODUCT HEADER */
+    .product-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        margin: 4rem 0;
+    }
+    .product-main-image {
+        position: relative; border-radius: 32px; overflow: hidden; height: 500px;
+    }
+    .product-main-image img {
+        width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;
+    }
+    .product-main-image:hover img { transform: scale(1.05); }
+    .product-main-glow {
+        position: absolute; inset: 10%; background: radial-gradient(circle, rgba(16,185,129,0.2), transparent);
+        border-radius: 32px; z-index: -1;
+    }
+    .product-info h1 {
+        font-size: 3rem; font-weight: 800; margin-bottom: 1rem;
+    }
+    .product-price-large {
+        font-size: 4rem; font-weight: 800; background: linear-gradient(135deg, var(--green-neon), var(--orange-glow));
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 2rem;
+    }
+    .product-rating { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 2rem; }
+    .stars { color: var(--orange-glow); font-size: 1.5rem; }
+    .buy-actions {
+        display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center;
+    }
+    .btn-buy {
+        background: var(--gradient-main); color: white; padding: 1.2rem 3rem; border-radius: 20px;
+        font-weight: 700; font-size: 1.1rem; text-decoration: none; display: inline-flex;
+        align-items: center; gap: 1rem; transition: all 0.3s ease;
+    }
+    .btn-buy:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(14,165,233,0.4); }
+    .btn-whatsapp-large {
+        background: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%;
+        display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+    }
+
+    /* SPECS GRID */
+    .specs-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 4rem 0;
+    }
+    .spec-card {
+        background: var(--surface); border-radius: 24px; padding: 2.5rem; border: 1px solid rgba(255,255,255,0.05);
+        transition: all 0.4s ease; text-align: center;
+    }
+    .spec-card:hover {
+        transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.4); border-color: rgba(14,165,233,0.3);
+    }
+    .spec-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .spec-card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; }
+    .spec-highlight { font-size: 1.8rem; font-weight: 800; color: var(--green-neon); margin-bottom: 0.5rem; }
+
+    /* BACKUP TIME CHART */
+    .backup-chart {
+        background: var(--surface); border-radius: 24px; padding: 3rem; margin: 4rem 0; text-align: center;
+    }
+    .backup-table {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;
+    }
+    .backup-item {
+        background: rgba(255,255,255,0.05); border-radius: 16px; padding: 1.5rem;
+    }
+    .backup-hours { font-size: 2.5rem; font-weight: 800; color: var(--green-neon); }
+    .backup-load { color: var(--text-secondary); }
+
+    /* FEATURES */
+    .features-section { background: var(--bg-secondary); padding: 6rem 0; }
+    .feature-badge {
+        background: rgba(14,165,233,0.1); color: var(--cyan-primary); padding: 0.5rem 1.5rem;
+        border-radius: 30px; font-size: 0.9rem; font-weight: 600; display: inline-block; margin-bottom: 2rem;
+    }
+    .features-grid {
+        display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem;
+    }
+    .feature-item {
+        display: flex; gap: 1.5rem; padding: 2.5rem; background: var(--surface); border-radius: 24px;
+        border-top: 4px solid var(--green-neon);
+    }
+    .feature-icon-large { font-size: 3.5rem; }
+
+    /* CTA SECTION */
+    .cta-inverter {
+        background: linear-gradient(135deg, var(--green-neon) 0%, var(--cyan-primary) 100%);
+        padding: 5rem 0; text-align: center;
+    }
+    .cta-inverter h2 { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+        .product-header { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+        .nav-menu { 
+            position: fixed; top: 0; right: -100%; height: 100vh; width: 320px;
+            background: rgba(5,8,22,0.98); flex-direction: column; justify-content: center;
+            gap: 3rem; padding: 2rem 0; transition: right 0.4s ease; border-left: 1px solid rgba(148,163,184,0.2);
+        }
+        .nav-menu.active { right: 0; }
+        .hamburger { display: flex; }
+        .nav-menu a { font-size: 1.3rem; opacity: 0; transform: translateX(30px); transition: all 0.4s ease; }
+        .nav-menu.active a { opacity: 1; transform: translateX(0); }
+    }
+    @media (max-width: 768px) {
+        .specs-grid, .features-grid, .backup-table { grid-template-columns: 1fr; }
+        .buy-actions { flex-direction: column; align-items: stretch; }
+        .btn-buy { justify-content: center; }
+    }
+
+    /* WHATSAPP */
+                   /* WHATSAPP FLOATING BUTTON */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+        }
+        .whatsapp-btn img {
+            width: 35px;
+            height: 35px;
+        }
+        .whatsapp-btn span {
+            position: absolute;
+            right: 75px;
+            background: #25D366;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(20px);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-btn:hover span {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
+    body.menu-open { overflow: hidden; }
+</style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo"><a href="index.html">JB Batteries</a></div>
+        <ul class="nav-menu">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'product' %}" class="active">Products</a></li>
+            <li><a href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="{% url 'index' %}">Home</a> → <a href="{% url 'product' %}">Products</a> → <span>Inverter Batteries</span>
+            </div>
+            <h1 class="page-title-main">HomeGuard 200Ah</h1>
+        </div>
+    </section>
+
+    <!-- PRODUCT HEADER -->
+    <section class="container">
+        <div class="product-header">
+            <div class="product-main-image">
+                <img src="{% static 'images/inverter_image.png' %}" alt="HomeGuard 200Ah Tubular Battery">
+                <div class="product-main-glow"></div>
+            </div>
+            <div class="product-info">
+                <h1>HomeGuard 200Ah</h1>
+                <div class="product-price-large">₹25,200</div>
+                <div class="product-rating">
+                    <span class="stars">⭐⭐⭐⭐⭐</span>
+                    <span>4.9</span>
+                </div>
+                <div class="buy-actions">
+                    <a href="https://wa.me/919890888955?text=HomeGuard%20150Ah%20quote" class="btn-buy">🛒 Add to Cart</a>
+                    
+                </div>
+                <p style="margin-top: 2rem; color: var(--text-secondary);">
+                    Lithiumion phosphate • 2 + 2 years warranty • Perfect for home inverters
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECS GRID -->
+    <section class="container">
+        <div class="specs-grid">
+            <div class="spec-card">
+                <div class="spec-icon">🔋</div>
+                <h3>LFP Technology</h3>
+                <div class="spec-highlight">200Ah Capacity</div>
+                <p>Solid batteries best for long life for homes</p>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">⏱️</div>
+                <h3>Backup Time</h3>
+                <div class="spec-highlight">15-18 Hours</div>
+                <p>Full load backup for family power needs</p>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">⚡</div>
+                <div class="spec-highlight">2000 - 2500</div>
+                <div class="spec-highlight">2000 - 25000</div>
+                <p>Quick recharge even after deep discharge</p>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon">✅</div>
+                <h3>Warranty</h3>
+                <div class="spec-highlight">2 + 2 Years</div>
+                <p>Pro-rata warranty with best service</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <div class="feature-badge">BUILT FOR POWER CUTS</div>
+                <h2>Uninterrupted Power for Your Home</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon-large">🏠</div>
+                    <div>
+                        <h3>Family Protection</h3>
+                        <p>Powers fridge, fans, lights, TV through long power cuts</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-large">🌡️</div>
+                    <div>
+                        <h3>Wide Temperature</h3>
+                        <p>Operates from 0°C to 50°C - perfect for Indian summers</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-large">💧</div>
+                    <div>
+                        <h3>Low Maintenance</h3>
+                        <p>No need of water - last for many years</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-inverter">
+        <div class="container">
+            <h2>Power Your Home Today</h2>
+            <p> 2 + 2 Years of warranty </p>
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 3rem;">
+                <a href="https://wa.me/919890888955?text=HomeGuard%20150Ah%20inverter%20battery" class="btn-buy" style="background: white; color: var(--cyan-primary); padding: 1.5rem 4rem;">💬 Instant Quote</a>
+                <a href="tel:+919890888955" class="btn-buy" style="background: rgba(255,255,255,0.2);">📞 Call Expert</a>
+            </div>
+        </div>
+    </section>
+
+     <!-- Floating WhatsApp -->
+    <a href="https://wa.me/919890888955?text=Hi%20JB%20Batteries%2C%20need%20quote%20for" class="whatsapp-btn" id="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        <span>Inquire Now</span>
+    </a>
+
+    <!-- JS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+            });
+
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

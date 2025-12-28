@@ -389,26 +389,52 @@
     }
 
     /* WHATSAPP BUTTON */
-    .whatsapp-btn {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        background: #25D366;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-        z-index: 1000;
-        text-decoration: none;
-        transition: all 0.3s ease;
-    }
-    .whatsapp-btn:hover {
-        transform: scale(1.1) translateY(-5px);
-        box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
-    }
+               /* WHATSAPP FLOATING BUTTON */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+        }
+        .whatsapp-btn img {
+            width: 35px;
+            height: 35px;
+        }
+        .whatsapp-btn span {
+            position: absolute;
+            right: 75px;
+            background: #25D366;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(20px);
+            transition: all 0.3s ease;
+        }
+        .whatsapp-btn:hover span {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+        }
 
     /* BODY MENU OPEN STATE */
     body.menu-open {
@@ -456,7 +482,7 @@
                 <button class="filter-btn active" data-filter="all">All Products</button>
                 <button class="filter-btn" data-filter="bike">Two Wheelers</button>
                 <button class="filter-btn" data-filter="inverter">Inverters</button>
-                <button class="filter-btn" data-filter="industrial">Industrial</button>
+               
             </div>
 
             <!-- PRODUCTS GRID -->
@@ -468,45 +494,63 @@
                         <div class="category-badge">🏍️ BIKE PRO</div>
                     </div>
                     <div class="product-content">
-                        <h2 class="product-title">Bike Power Pro Series</h2>
-                        <div class="product-price">₹1,899 <span style="font-size: 0.7em; opacity: 0.8;">from</span></div>
+                        <h2 class="product-title">Power Pro Series</h2>
+                        <div class="product-price">₹23,000 <span style="font-size: 0.7em; opacity: 0.8;">from</span></div>
                         <div class="product-features">
                             <div class="feature-item">
                                 <span class="feature-icon">🔋</span>
-                                <span>VRLA Technology • Zero Maintenance</span>
+                                <span>LFP Technology • Zero Maintenance</span>
                             </div>
                             <div class="feature-item">
                                 <span class="feature-icon">⚡</span>
-                                <span>200+ CCA • 12V 4-9Ah</span>
+                                <span>72V 30Ah</span>
                             </div>
                             <div class="feature-item">
                                 <span class="feature-icon">✅</span>
-                                <span>18 Months Warranty</span>
+                                <span>1 + 2 Years Warranty</span>
                             </div>
                         </div>
                         <div class="product-actions">
-                            <a href="bike.html" class="btn-primary">View Details</a>
-                            <a href="https://wa.me/919890873444?text=Bike%20Power%20Pro%20quote" class="btn-whatsapp" target="_blank">💬</a>
+                            <a href="{% url 'bike_detail' %}" class="btn-primary">View Details</a>
+                            <a href="https://wa.me/919890888955?text=Bike%20Power%20Pro%20quote" class="btn-whatsapp" target="_blank">💬</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- SCOOTER BATTERY -->
+                 <div class="product-card" data-category="bike">
+                    <div class="product-image">
+                        <img src="{% static 'images/scoty_batteries.png' %}" alt="ScootPro" loading="lazy">
+                        <div class="category-badge">🛵 SCOOTER Ultra</div>
+                    </div>
+                    <div class="product-content">
+                        <h2 class="product-title">Scooter Ultra Series</h2>
+                        <div class="product-price">₹18,500</div>
+                        <div class="product-features">
+                            <div class="feature-item"><span class="feature-icon">⚡</span>60V 30Ah</div>
+                            <div class="feature-item"><span class="feature-icon">✅</span>1 + 2 Years Warranty</div>
+                        </div>
+                        <div class="product-actions">
+                            <a href="{% url 'scooter_ultra' %}" class="btn-primary">Details</a>
+                            <a href="https://wa.me/919890888955" class="btn-whatsapp" target="_blank">💬</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="product-card" data-category="bike">
                     <div class="product-image">
                         <img src="{% static 'images/scoty_batteries.png' %}" alt="ScootPro" loading="lazy">
                         <div class="category-badge">🛵 SCOOTER</div>
                     </div>
                     <div class="product-content">
-                        <h2 class="product-title">ScootPro Series</h2>
-                        <div class="product-price">₹2,299</div>
+                        <h2 class="product-title">Scooter Pro Series</h2>
+                        <div class="product-price">₹16,500</div>
                         <div class="product-features">
-                            <div class="feature-item"><span class="feature-icon">⚡</span>12V 5Ah</div>
-                            <div class="feature-item"><span class="feature-icon">✅</span>24 Months Warranty</div>
+                            <div class="feature-item"><span class="feature-icon">⚡</span>48V 30Ah</div>
+                            <div class="feature-item"><span class="feature-icon">✅</span>1 + 2 Years Warranty</div>
                         </div>
                         <div class="product-actions">
-                            <a href="scooter.html" class="btn-primary">Details</a>
-                            <a href="https://wa.me/919890873444" class="btn-whatsapp" target="_blank">💬</a>
+                            <a href="{% url 'scooter_pro' %}" class="btn-primary">Details</a>
+                            <a href="https://wa.me/919890888955" class="btn-whatsapp" target="_blank">💬</a>
                         </div>
                     </div>
                 </div>
@@ -518,48 +562,70 @@
                         <div class="category-badge">🏠 INVERTER</div>
                     </div>
                     <div class="product-content">
-                        <h2 class="product-title">HomeGuard 150Ah</h2>
-                        <div class="product-price">₹12,999</div>
+                        <h2 class="product-title">HomeGuard 200Ah</h2>
+                        <div class="product-price">₹25,200</div>
                         <div class="product-features">
-                            <div class="feature-item"><span class="feature-icon">🔋</span>Tubular Plates</div>
-                            <div class="feature-item"><span class="feature-icon">✅</span>36 Months Warranty</div>
+                            <div class="feature-item"><span class="feature-icon">🔋</span>Lithium ion phosphate</div>
+                            <div class="feature-item"><span class="feature-icon">✅</span>2 + 2 Warranty</div>
                             <div class="feature-item"><span class="feature-icon">⚡</span>Fast Charging</div>
                         </div>
                         <div class="product-actions">
-                            <a href="inverter.html" class="btn-primary">Details</a>
-                            <a href="https://wa.me/919890873444" class="btn-whatsapp" target="_blank">💬</a>
+                            <a href="{% url 'inverter_ultra' %}" class="btn-primary">Details</a>
+                            <a href="https://wa.me/919890888955" class="btn-whatsapp" target="_blank">💬</a>
                         </div>
                     </div>
                 </div>
-
-                <!-- INDUSTRIAL BATTERY -->
-                <div class="product-card" data-category="industrial">
+                <div class="product-card" data-category="inverter">
                     <div class="product-image">
-                        <img src="{% static 'images/inverter_battery.png' %}" alt="IndusPower" loading="lazy">
-                        <div class="category-badge">🏭 INDUSTRIAL</div>
+                        <img src="{% static 'images/inverter_image.png' %}" alt="HomeGuard" loading="lazy">
+                        <div class="category-badge">🏠 INVERTER</div>
                     </div>
                     <div class="product-content">
-                        <h2 class="product-title">IndusPower 200Ah</h2>
-                        <div class="product-price">₹18,499</div>
+                        <h2 class="product-title">HomeGuard 100Ah With Smart Bus</h2>
+                        <div class="product-price">₹17,000</div>
                         <div class="product-features">
-                            <div class="feature-item"><span class="feature-icon">🔋</span>Deep Cycle</div>
-                            <div class="feature-item"><span class="feature-icon">✅</span>48 Months Warranty</div>
+                            <div class="feature-item"><span class="feature-icon">🔋</span>Lithium ion phosphate</div>
+                            <div class="feature-item"><span class="feature-icon">✅</span>2 + 2 Warranty</div>
+                            <div class="feature-item"><span class="feature-icon">⚡</span>Fast Charging</div>
                         </div>
                         <div class="product-actions">
-                            <a href="industrial.html" class="btn-primary">Details</a>
-                            <a href="https://wa.me/919890873444" class="btn-whatsapp" target="_blank">💬</a>
+                            <a href="{% url 'inverter_pro' %}" class="btn-primary">Details</a>
+                            <a href="https://wa.me/919890888955" class="btn-whatsapp" target="_blank">💬</a>
                         </div>
                     </div>
                 </div>
+                <div class="product-card" data-category="inverter">
+                    <div class="product-image">
+                        <img src="{% static 'images/inverter_image.png' %}" alt="HomeGuard" loading="lazy">
+                        <div class="category-badge">🏠 INVERTER</div>
+                    </div>
+                    <div class="product-content">
+                        <h2 class="product-title">HomeGuard 100Ah</h2>
+                        <div class="product-price">₹15,500</div>
+                        <div class="product-features">
+                            <div class="feature-item"><span class="feature-icon">🔋</span>Lithium ion phosphate</div>
+                            <div class="feature-item"><span class="feature-icon">✅</span>2 + 2 Warranty</div>
+                            <div class="feature-item"><span class="feature-icon">⚡</span>Fast Charging</div>
+                        </div>
+                        <div class="product-actions">
+                            <a href="{% url 'inverter_basic' %}" class="btn-primary">Details</a>
+                            <a href="https://wa.me/919890888955" class="btn-whatsapp" target="_blank">💬</a>
+                        </div>
+                    </div>
+                </div>
+                
+
+             
+               
             </div>
         </div>
     </section>
 
     <!-- Floating WhatsApp -->
-    <a href="https://wa.me/919890873444?text=Hi%20JB%20Batteries%2C%20need%20product%20quote" class="whatsapp-btn" target="_blank">
-        💬
+    <a href="https://wa.me/919890888955?text=Hi%20JB%20Batteries%2C%20need%20quote%20for" class="whatsapp-btn" id="whatsapp-btn" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        <span>Inquire Now</span>
     </a>
-
     <!-- SINGLE CLEAN JAVASCRIPT -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {

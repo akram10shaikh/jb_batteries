@@ -22,3 +22,21 @@ def product_page(request):
 
 def contact(request):
     return render(request,'contact.html')
+
+def bike_detail(request):
+    return render(request,'bike_detail.html')
+
+def scooter_ultra(request):
+    return render(request,'scooter_ultra.html')
+
+def scooter_pro(request):
+    return render(request,'scooter_pro.html')
+
+def inverter_basic(request):
+    return render(request,'inverter_basic.html')
+
+def inverter_pro(request):
+    return render(request,'inverter_pro.html')
+
+def inverter_ultra(request):
+    return render(request,'inverter_ultra.html')
